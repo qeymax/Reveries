@@ -1,0 +1,31 @@
+﻿@model Reveries.ViewModels.HomeSearch
+@{
+    Layout = null;
+}
+<h1>aa</h1>
+
+    @foreach (var user in Model.Users)
+    {
+        <div class="valign-wrapper">
+            <div class="row">
+
+                <div class="card" style="min-width:600px; min-height:150px">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" style="max-height:50px;" src="img/logoNoText.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">@user.Username<i class="material-icons right">more_vert</i></span>
+                        <p>@user.Name</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">@user.Username<i class="material-icons right">close</i></span>
+                        <p>@user.About</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    }
+        
+

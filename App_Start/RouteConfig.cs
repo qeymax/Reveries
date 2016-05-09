@@ -19,10 +19,11 @@ namespace Reveries
             //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             //);
             routes.MapRoute("Home", "", new { Controller = "Home", Action = "Index" });
-            routes.MapRoute("User", "Profile/{username}", new { Controller = "User", Action = "Index", username= UrlParameter.Optional });
+            routes.MapRoute("User", "Profile/{username}", new { Controller = "User", Action = "Index", username = UrlParameter.Optional });
             routes.MapRoute("Login", "Login", new { Controller = "User", Action = "Login" });
             routes.MapRoute("Logout", "Logout", new { Controller = "User", Action = "Logout" });
             routes.MapRoute("Register", "Register", new { Controller = "User", Action = "Register" });
+            routes.MapRoute("Search", "Search", new { Controller = "Home", Action = "Search" });
         }
     }
 }

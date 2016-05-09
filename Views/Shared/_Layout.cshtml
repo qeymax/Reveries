@@ -4,16 +4,73 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/css/materialize.min.css")
+    @Styles.Render("~/css/animate.css")
+    @Styles.Render("~/css/material-icons.css")
+    @Styles.Render("~/css/font-awesome.min.css")
+    @Styles.Render("~/css/myStyle.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+    <div class="navbar-fixed">
+        <nav style="background-color:whitesmoke">
+            <div class="nav-wrapper">
+                <a style="margin-left:50px" href="#" class="brand-logo fa-spin"><img style="max-height:85px" src="img/logoNoText.png" /></a>
+                <ul class="right hide-on-med-and-down">
+
+                    <li style="width:600px ; margin-right:200px;">
+                        <form>
+                            <div>
+                                <input placeholder="Search..." style="color:red" id="search" type="search" >
+                            </div>
+                        </form>
+                    </li>
+                    <!-- Dropdown Trigger -->
+                    <li style="margin-right:60px"><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown1"><i style="color:red" class="material-icons right">menu</i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Profile</a></li>
+
+        <li class="divider"></li>
+        <li><a href="#!">Logout</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">About</a></li>
+    </ul>
+
+
+    <div id="body">
         @RenderBody()
         
+    </div>
+        
+        
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Scripts")
     @RenderSection("scripts", required: false)
+    <script>
+        $('#search').on('input', function (e) {
+            if ($(this).val() == '')
+            {
+                window.history.pushState({ path: '/' }, '', '/');
+                window.location.href = "";
+            }
+            else
+            {
+                pageurl = '/Search';
+
+                $('#body').empty();
+                if (pageurl != window.location) {
+                    window.history.pushState({ path: pageurl }, '', pageurl);
+                }
+                $('#body').load("@Url.Action("Search")", { username: $(this).val() });
+
+                return false;
+
+            }
+        });
+    </script>
 </body>
 </html>

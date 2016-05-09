@@ -10,5 +10,6 @@ namespace Reveries.ViewModels
     {
         public List<Reveries.Models.User> Users { get; set; }
         public List<Follow> Follows { get; set; }
+        public string username { get; set; }
     }
 }

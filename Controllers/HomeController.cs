@@ -1,4 +1,5 @@
-﻿using Reveries.ViewModels;
+﻿using Reveries.Models;
+using Reveries.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,20 @@ namespace Reveries.Controllers
         public ActionResult Index()
         {
             
-            return View(new User {
-                Users = context.Users.ToList(),
-                Follows = context.Follows.ToList()
+            return View(new HomeIndex {
+                reveries = context.Reveries.ToList()
+            });
+        }
+        [HttpPost]
+        public ActionResult Search(string username)
+        {
+            if (String.IsNullOrEmpty(username))
+              return  RedirectToRoute("Home");
+            return View(new HomeSearch {
+                Users = context.Users.Where(a => a.Username.Contains(username)).ToList()
             });
         }
 
-       
+
     }
 }
