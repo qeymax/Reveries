@@ -12,11 +12,17 @@ namespace Reveries.Controllers
     {
         Context userContext = new Context();
         // GET: User
-        public ActionResult Index()
+        public ActionResult Index(string username)
         {
             
-            return View();
+            return View(new UserIndex {
+                User = userContext.Users.FirstOrDefault(a => a.Username == username )
+            });
         }
+
+
+
+
 
         public ActionResult Login()
         {
@@ -47,6 +53,11 @@ namespace Reveries.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToRoute("Home");
+        }
+
+        public ActionResult Register()
+        {
+            return View();
         }
     }
 }

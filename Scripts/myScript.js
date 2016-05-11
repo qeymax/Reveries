@@ -11,12 +11,13 @@ $(document).ready(function() {
         dismissible: true, // Modal can be dismissed by clicking outside of the modal
         opacity: .8, // Opacity of modal background
         in_duration: 200, // Transition in duration
-        out_duration: 200
+        out_duration: 200  
     });
 
 
     $(".comSave").hide();
     $(".RevSave").hide();
+ 
 
     $(".RevEdit").on("click", function () {
         var RevText = $(".RevFlex").text();
@@ -38,6 +39,7 @@ $(document).ready(function() {
         var comText = $(".comFlex").text();
         $(".comFlex").html("<textarea class='materialize-textarea'>" + comText + "</textarea>");
         $(".comSave").show();
+
         $(".comEdit").hide();
 
     });
@@ -46,6 +48,7 @@ $(document).ready(function() {
         var comNText = $(".comFlex textarea").val();
         $(".comFlex").html(comNText);
         $(".comSave").hide();
+
         $(".comEdit").show();
     });
 
