@@ -36,12 +36,12 @@
     <div class="container">
         <div class="row">
             <div class="col s12 cards-container">
-                @foreach (var reverie in Model.User.Reveries.OrderByDescending(a => a.Id).ToList())
+                @foreach (var reverie in Model.User.Reveries.OrderByDescending(a => a.Id).Take(3).ToList())
                 {
                     
                         <a class="modal-trigger" href="#@reverie.Id">
                             <div class="card white darken-1">
-                                <div class="card-content grey-text text-darken-3">
+                                <div style="min-height:100px" class="card-content grey-text text-darken-3">
                                     <img style="float:left;margin-right: 1.5em;height:70px;width:70px;" src="~/img/tom.jpg" />
                                     <h5 class="flow-text">By: <span class="">@reverie.User.Name</span></h5>
                                     <p style="display: block;white-space: pre;">@reverie.Content</p>
@@ -66,7 +66,7 @@
             <div class="card white darken-1">
                 <div class="card-content grey-text text-darken-3">
 
-                    <h5 class="flow-text">By: <span class="">@reverie.User.Name</span></h5>
+                    <h5 class="flow-text">By: <a href="@Url.RouteUrl("User" , new { username = @reverie.User.Username })"><span class="">@reverie.User.Name</span></a></h5>
                     <div class="row">
                         <div class="col s12 m2">
                             <img src="//placehold.it/80x80" />
@@ -101,7 +101,7 @@
                             <img src="//placehold.it/50x50" />
                         </div>
                         <div class="col s12 m10 comCont">
-                            <p class="comFlex">@comment.Content</p>
+                            <p style="display: block;white-space: pre;">@comment.Content</p>
                             <div class="comControls">
                                 <p style="font-size:12px" id="@comment.Id" class="right "><a href="#!" class="comDel">Delete</a></p>
                                 <p style="font-size:12px" id="@comment.Id" class="left"><a href='#!' class='comSave'>Done</a></p>
