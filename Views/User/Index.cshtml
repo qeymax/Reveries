@@ -36,7 +36,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 cards-container">
-                @foreach (var reverie in Model.User.Reveries.OrderByDescending(a => a.Id).Take(3).ToList())
+                @foreach (var reverie in Model.User.Reveries.OrderByDescending(a => a.Id).ToList())
                 {
                     
                         <a class="modal-trigger" href="#@reverie.Id">
@@ -66,17 +66,19 @@
             <div class="card white darken-1">
                 <div class="card-content grey-text text-darken-3">
 
-                    <h5 class="flow-text">By: <a href="@Url.RouteUrl("User" , new { username = @reverie.User.Username })"><span class="">@reverie.User.Name</span></a></h5>
                     <div class="row">
+                        <h5 class="flow-text">By: <a href="@Url.RouteUrl("User" , new { username = @reverie.User.Username })"><span class="">@reverie.User.Name</span></a> On: <span>@reverie.CreateDate.ToShortDateString() , @reverie.CreateDate.ToShortTimeString()</span></h5>
                         <div class="col s12 m2">
+                            
                             <img src="//placehold.it/80x80" />
                         </div>
                         <div class="col s12 m10">
-                            <p style="display: block;white-space: pre;">@reverie.Content</p>
+                            <p class="RevFlex" style="display: block;white-space: pre;">@reverie.Content</p>
                         </div>
                     </div>
                 </div>
                 <div class="card-action">
+                    
                     <div class="RevControls" style="margin-left:20px">
                         <span class="left"><a href="#!" class="RevEdit" id="@reverie.Id"><i class="material-icons">create</i></a></span>
                         <span class="left"><a href="#!" class="RevDel" id="@reverie.Id"><i class="material-icons">clear</i></a></span>
@@ -95,12 +97,16 @@
 
 
                 @foreach (var comment in reverie.Comments.OrderByDescending(a => a.Id).ToList())
-                    {
+                {
+                    
                     <div class="row">
+                        <p style="font-size:14px; color:darkorange">By: <a href="@Url.RouteUrl("User" , new { username = @comment.User.Username })"> @comment.User.Name</a> On: @comment.CreateDate.ToShortDateString() , @comment.CreateDate.ToShortTimeString()</p>
+                        <br />
                         <div class="col s12 m2">
                             <img src="//placehold.it/50x50" />
                         </div>
                         <div class="col s12 m10 comCont">
+                            
                             <p style="display: block;white-space: pre;">@comment.Content</p>
                             <div class="comControls">
                                 <p style="font-size:12px" id="@comment.Id" class="right "><a href="#!" class="comDel">Delete</a></p>
