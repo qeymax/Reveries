@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Reveries.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Reveries.ViewModels
 {
-    public class User
+    public class UserLogin
     {
-        public List<Reveries.Models.User> Users { get; set; }
-        public List<Follow> Follows { get; set; }
+        [Required]
         public string username { get; set; }
+        [Required, DataType(DataType.Password)]
+        public string password { get; set; }
     }
 }

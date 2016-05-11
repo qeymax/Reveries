@@ -3,19 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Reveries</title>
     @Styles.Render("~/css/materialize.min.css")
     @Styles.Render("~/css/animate.css")
     @Styles.Render("~/css/material-icons.css")
     @Styles.Render("~/css/font-awesome.min.css")
     @Styles.Render("~/css/myStyle.css")
-    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="navbar-fixed">
         <nav style="background-color:whitesmoke">
             <div class="nav-wrapper">
-                <a style="margin-left:50px" href="#" class="brand-logo fa-spin"><img style="max-height:85px" src="img/logoNoText.png" /></a>
+                <a style="margin-left:50px" href="@Url.RouteUrl("Home")" class="brand-logo fa-spin"><img style="max-height:85px" src="img/logoNoText.png" /></a>
                 <ul class="right hide-on-med-and-down">
 
                     <li style="width:600px ; margin-right:200px;">
@@ -32,14 +31,14 @@
         </nav>
     </div>
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">Profile</a></li>
-
+        <li><a href="@Url.RouteUrl("User",new {username = User.Identity.Name })">Profile</a></li>
         <li class="divider"></li>
-        <li><a href="#!">Logout</a></li>
+        <li><a href="@Url.RouteUrl("Logout")">Logout</a></li>
         <li class="divider"></li>
         <li><a href="#!">About</a></li>
     </ul>
 
+    <a href="#top" class="btn waves-effect TopBtn waves-light btn-large red darken-2 page-scroll">Top</a>
 
     <div id="body">
         @RenderBody()
@@ -49,26 +48,29 @@
         
 
     @Scripts.Render("~/bundles/Scripts")
+
     @RenderSection("scripts", required: false)
     <script>
         $('#search').on('input', function (e) {
+            $('#body').empty();
+            $(document).off("scroll");
+        
             if ($(this).val() == '')
             {
                 window.history.pushState({ path: '/' }, '', '/');
                 window.location.href = "";
-                
+
             }
             else
             {
                 pageurl = '/Search';
 
-                $('#body').empty();
+                
                 if (pageurl != window.location) {
                     window.history.pushState({ path: pageurl }, '', pageurl);
                 }
                 $('#body').html("<div style=\"position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);\"> <img src=\"img/spiffygif_138x138.gif\" /> </div>");
                 $('#body').load("@Url.Action("Search")", { username: $(this).val() });
-
                 return false;
 
             }

@@ -48,6 +48,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -141,7 +145,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HomeIndex.cs" />
     <Compile Include="ViewModels\HomeSearch.cs" />
-    <Compile Include="ViewModels\User.cs" />
+    <Compile Include="ViewModels\HomeSearchCards.cs" />
+    <Compile Include="ViewModels\UserLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\animate.css" />
@@ -180,6 +185,7 @@
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="img\logoNoText.png" />
     <Content Include="img\spiffygif_138x138.gif" />
+    <Content Include="LICENSE.txt" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -211,6 +217,7 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\SearchCards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -24,6 +24,7 @@ namespace Reveries
             routes.MapRoute("Logout", "Logout", new { Controller = "User", Action = "Logout" });
             routes.MapRoute("Register", "Register", new { Controller = "User", Action = "Register" });
             routes.MapRoute("Search", "Search", new { Controller = "Home", Action = "Search" });
+            routes.MapRoute("SearchCards", "SearchCards", new { Controller = "Home", Action = "SearchCards" });
         }
     }
 }

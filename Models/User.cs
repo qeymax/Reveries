@@ -22,6 +22,20 @@ namespace Reveries.Models
         public DateTime BirthDate { get; set; }
         public DateTime RegisterDate { get; set; }
 
+
+        public virtual void SetPassword(string Password)
+        {
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(Password, 13);
+        }
+        public static void FakeHash()
+        {
+            BCrypt.Net.BCrypt.HashPassword("", 13);
+        }
+        public virtual bool CheckPassword(string Password)
+        {
+            return BCrypt.Net.BCrypt.Verify(Password, PasswordHash);
+        }
+
         public virtual List<Reverie> Reveries { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public virtual List<Like> Likes { get; set; }

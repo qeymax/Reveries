@@ -56,3 +56,6 @@ D:\Muhammad\Documents\Visual Studio 2015\Projects\Reveries\Reveries\bin\EntityFr
 D:\Muhammad\Documents\Visual Studio 2015\Projects\Reveries\Reveries\bin\EntityFramework.SqlServer.dll
 D:\Muhammad\Documents\Visual Studio 2015\Projects\Reveries\Reveries\bin\EntityFramework.xml
 D:\Muhammad\Documents\Visual Studio 2015\Projects\Reveries\Reveries\bin\EntityFramework.SqlServer.xml
+D:\Muhammad\Documents\Visual Studio 2015\Projects\Reveries\Reveries\bin\BCrypt.Net.dll
+D:\Muhammad\Documents\Visual Studio 2015\Projects\Reveries\Reveries\bin\BCrypt.Net.pdb
+D:\Muhammad\Documents\Visual Studio 2015\Projects\Reveries\Reveries\bin\BCrypt.Net.xml
