@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterComplete</title>
+    @Styles.Render("~/css/materialize.min.css")
+    @Styles.Render("~/css/animate.css")
+    @Styles.Render("~/css/material-icons.css")
+    @Styles.Render("~/css/font-awesome.min.css")
+    @Styles.Render("~/css/myStyle.css")
+</head>
+<body>
+    <div class="profContent">
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="card bio">
+                    <div class="card-content">
+                        <p>Registration Completed Successfully , Click <a href="@Url.RouteUrl("Login")">Here</a> To Log-in </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

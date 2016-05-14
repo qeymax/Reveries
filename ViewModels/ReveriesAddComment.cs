@@ -6,11 +6,8 @@ using System.Web;
 
 namespace Reveries.ViewModels
 {
-    public class UserIndex
+    public class ReveriesAddComment
     {
-        public User User { get; set; }
-        public User ActiveUser { get; set; }
-        public string textArea { get; set; }
-
+        public Comment Comment { get; set; }
     }
 }

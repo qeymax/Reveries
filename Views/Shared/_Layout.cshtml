@@ -68,7 +68,7 @@
         </nav>
     </div>
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="@Url.RouteUrl("User",new {username = /*User.Identity.Name*/ "qeymax" })">Profile</a></li>
+        <li><a href="@Url.RouteUrl("User",new {username = User.Identity.Name })">Profile</a></li>
         <li class="divider"></li>
         <li><a href="@Url.RouteUrl("Logout")">Logout</a></li>
         <li class="divider"></li>
@@ -88,6 +88,34 @@
 
     @RenderSection("scripts", required: false)
     <script>
+        @*$(document).scroll(function (e) {
+
+            if (/Profile/.test(window.location.href))
+            {
+               
+                var scrollHeight = $(document).height();
+                var scrollPosition = $(window).height() + $(window).scrollTop();
+                var pathArray = window.location.pathname.split( '/' );
+                var ThirdLevelLocation = pathArray[2];
+                if ((scrollHeight - scrollPosition) / scrollHeight < 0.01) {
+
+                    //$('.cards').append("<div class=\"temp\" style=\"padding-top: 120px;padding-left: 80px;\"> <img src=\"img/spiffygif_138x138.gif\" /> </div>");
+                    $.post("@Url.RouteUrl("UserReveries" )", { username: ThirdLevelLocation.toString() , skip: $('.cardcount').length }, function (data) {
+
+                        $('.aaa').append(data);
+                       
+                    }).fail(function () {
+
+                        alert("error")
+                    });
+
+
+                }
+            }
+                return false;
+            });*@
+        
+
         $('#search').on('input', function (e) {
             $('#body').empty();
             $(document).off("scroll");

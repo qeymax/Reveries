@@ -13,5 +13,6 @@ namespace Reveries.ViewModels
         public string username { get; set; }
         [Required, DataType(DataType.Password)]
         public string password { get; set; }
+        public string remember { get; set; }
     }
 }

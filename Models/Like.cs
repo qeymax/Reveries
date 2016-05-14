@@ -15,9 +15,9 @@ namespace Reveries.Models
         public int ReverieId { get; set; }
 
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
-        public Reverie Reverie { get; set; }
+        public virtual Reverie Reverie { get; set; }
 
     }
 }

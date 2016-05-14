@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReveriesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -143,15 +144,21 @@
     <Compile Include="Models\Reverie.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HomeHomeReveries.cs" />
     <Compile Include="ViewModels\HomeIndex.cs" />
     <Compile Include="ViewModels\HomeSearch.cs" />
     <Compile Include="ViewModels\HomeSearchCards.cs" />
+    <Compile Include="ViewModels\ReveriesAddComment.cs" />
+    <Compile Include="ViewModels\UserEditProfile.cs" />
     <Compile Include="ViewModels\UserIndex.cs" />
     <Compile Include="ViewModels\UserLogin.cs" />
+    <Compile Include="ViewModels\UserRegister.cs" />
+    <Compile Include="ViewModels\UserUserReveries.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\animate.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\material-icons.css" />
     <Content Include="css\materialize.min.css" />
     <Content Include="css\myStyle.css" />
@@ -185,9 +192,11 @@
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="img\Cover\default-cover.png" />
     <Content Include="img\logoNoText.png" />
+    <Content Include="img\Profile\nan.jpg" />
     <Content Include="img\spiffygif_138x138.gif" />
-    <Content Include="img\tom.jpg" />
+    <Content Include="img\Profile\tom.jpg" />
     <Content Include="LICENSE.txt" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
@@ -222,6 +231,11 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\SearchCards.cshtml" />
+    <Content Include="Views\User\UserReveries.cshtml" />
+    <Content Include="Views\Home\HomeReveries.cshtml" />
+    <Content Include="Views\User\EditProfile.cshtml" />
+    <Content Include="Views\Reveries\AddComment.cshtml" />
+    <Content Include="Views\User\RegisterComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

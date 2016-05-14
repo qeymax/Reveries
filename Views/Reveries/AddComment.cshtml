@@ -1,0 +1,24 @@
+﻿@model Reveries.ViewModels.ReveriesAddComment
+
+@{
+    Layout = null;
+}
+
+<div class="comsec @Model.Comment.Id ">
+    <div class="row">
+        <p style="font-size:14px; color:darkorange">By: <a href="@Url.RouteUrl("User" , new { username = @Model.Comment.User.Username })"> @Model.Comment.User.Name</a> On: @Model.Comment.CreateDate.ToShortDateString() , @Model.Comment.CreateDate.ToShortTimeString()</p>
+        <br />
+        <div class="col s12 m2">
+            <img style="max-height:50px; max-width:50px;" src="~/img/Profile/@Model.Comment.User.ProfilePic" />
+        </div>
+        <div class="col s12 m10 comCont">
+            <p class="comment @Model.Comment.Id" style="display: block;white-space: pre;">@Model.Comment.Content</p>
+            <div class="comControls">
+                <p style="font-size:12px" class="right "><a id="@Model.Comment.Id" href="#!" class="comDel">Delete</a></p>
+                <p style="font-size:12px" class="left"><a id="@Model.Comment.Id" href='#!' class='comSave'>Done</a></p>
+                <p style="font-size:12px" class="left"><a id="@Model.Comment.Id" href="#!" class="comEdit">Edit</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/myScript.js"></script>

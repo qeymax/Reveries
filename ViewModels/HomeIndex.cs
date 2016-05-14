@@ -8,8 +8,10 @@ namespace Reveries.ViewModels
 {
     public class HomeIndex
     {
-        public List<Reverie> reveries { get ; set ; }
-        public string Content { get; set; }
+        public List<Reverie> reveries { get; set; }
+        public User User { get; set; }
+
+        public string textArea { get; set; }
 
     }
 }

@@ -25,6 +25,19 @@ namespace Reveries
             routes.MapRoute("Register", "Register", new { Controller = "User", Action = "Register" });
             routes.MapRoute("Search", "Search", new { Controller = "Home", Action = "Search" });
             routes.MapRoute("SearchCards", "SearchCards", new { Controller = "Home", Action = "SearchCards" });
+            routes.MapRoute("UserReveries", "UserReveries", new { Controller = "User", Action = "UserReveries" });
+            routes.MapRoute("EditProfile", "EditProfile", new { Controller = "User", Action = "EditProfile" });
+            routes.MapRoute("HomeReveries", "HomeReveries", new { Controller = "Home", Action = "HomeReveries" });
+            routes.MapRoute("AddComment", "AddComment", new { Controller = "Reveries", Action = "AddComment" });
+            routes.MapRoute("DeleteComment", "DeleteComment", new { Controller = "Reveries", Action = "DeleteComment" });
+            routes.MapRoute("EditComment", "EditComment", new { Controller = "Reveries", Action = "EditComment" });
+            routes.MapRoute("EditReverie", "EditReverie", new { Controller = "Reveries", Action = "EditReverie" });
+            routes.MapRoute("DeleteReverie", "DeleteReverie", new { Controller = "Reveries", Action = "DeleteReverie" });
+            routes.MapRoute("RegisterComplete", "RegisterComplete", new { Controller = "User", Action = "RegisterComplete" });
+            routes.MapRoute("Follow", "Follow", new { Controller = "Reveries", Action = "Follow" });
+            routes.MapRoute("unFollow", "unFollow", new { Controller = "Reveries", Action = "unFollow" });
+            routes.MapRoute("Like", "Like", new { Controller = "Reveries", Action = "Like" });
+            routes.MapRoute("Unlike", "Unlike", new { Controller = "Reveries", Action = "Unlike" });
         }
     }
 }

@@ -1,0 +1,136 @@
+﻿@model Reveries.ViewModels.UserEditProfile
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<main class="white darken-2 edit">
+    <div class="row">
+        <div class="col s12 center-block">
+            <div class="cover">
+                <img style="height:450px; width:1366px;" id="Coverimg" src="~/img/Cover/@Model.user.CoverPic" alt="cover" class="responsive-img" />
+                <a onclick="CoverUpload.click()" href="#!" class="waves-effect waves-light btn red darken-2 right edit"><i class="material-icons left">create</i>Edit Cover</a>
+            </div>
+            <div class="data">
+                <img id="Profileimg" style="max-height:150px; max-width:150px;" src="~/img/Profile/@Model.user.ProfilePic" alt="profile" class="responsive-img profilePic" />
+                <a onclick="ProfileUpload.click()" style="color:white" href="#!" class="white red-text editPPic"><i class="material-icons left">star_border</i>Edit</a>
+                <h3 class="myHeadLine userName"></h3>
+                <!--<a href="#!" class="waves-effect waves-light btn red darken-2 right follow"><i class="material-icons left">star_border</i>Follow</a>-->
+            </div>
+        </div>
+    </div>
+
+
+   @using (Html.BeginForm("EditProfile", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+   {
+        <input id="ProfileUpload" type="file" accept="image/*" hidden="hidden" name="ProfileUpload" />
+        <input  id="CoverUpload" type="file" accept="image/*" hidden="hidden"  name="CoverUpload"/>
+        @Html.ValidationSummary()
+        <div class="profContent">
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="card bio">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <h4 class="myHeadLine">Personal Info</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="name" type="text" class="validate" name="name" value="@Model.user.Name">
+                                            <label for="name">Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="email" type="email" class="validate" name="email" value="@Model.user.Email">
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <a onclick="$(this).closest('form').submit(); return false;" href="#!" class="waves-effect waves-light btn red darken-2 right"><i class="material-icons left">done_all</i>Save</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="card bio">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12">
+                                    <h4 class="myHeadLine">About</h4>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <!--<input id="email" type="email" class="validate">-->
+                                            <textarea id="bio" class="validate materialize-textarea" name="About">@Model.user.About</textarea>
+                                            <label for="bio">Bio</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <a onclick="$(this).closest('form').submit(); return false;" href="#!" class="waves-effect waves-light btn red darken-2 right"><i class="material-icons left">done_all</i>Save</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="card bio">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12">
+                                    <h4 class="myHeadLine">Change Password</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="oldpassword" type="password" class="validate" name="oldpass">
+                                            <label for="oldpassword">Old Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="newPassword" type="password" class="validate" name="pass">
+                                            <label for="newPassword">New Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="confPassword" type="password" class="validate" name="confirmpass">
+                                            <label for="confPassword">Confirm Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <a onclick="$(this).closest('form').submit(); return false;" href="#!" class="waves-effect waves-light btn red darken-2 right"><i class="material-icons left">done_all</i>Save</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   }
+</main>

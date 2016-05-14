@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace Reveries.Controllers
 {
-    [OverrideAuthentication]
     public class HomeController : Controller
     {
         Context context = new Context();
@@ -16,13 +15,36 @@ namespace Reveries.Controllers
 
         public ActionResult Index()
         {
-            
-            return View(new HomeIndex {
-                reveries = context.Reveries.ToList()
+            var xs = context.Users.FirstOrDefault(a => a.Username == User.Identity.Name).Follower;
+            List<Reverie> r = new List<Reverie>();
+            foreach (var x in xs)
+            {
+                r.AddRange(x.Followed.Reveries);
+            }
+            return View(new HomeIndex
+            {
+                User = context.Users.FirstOrDefault(a => a.Username == User.Identity.Name),
+                reveries = r.ToList()
             });
         }
 
-        
+        //[HttpPost]
+        //public ActionResult HomeReveries(int skip)
+        //{
+        //    var xs = context.Users.FirstOrDefault().Follower;
+        //    List<Reverie> r = new List<Reverie>();
+        //    foreach (var x in xs)
+        //    {
+        //        r.AddRange(x.Follower.Reveries);
+        //    }
+        //    return View(new HomeHomeReveries
+        //    {
+        //        reveries = r.OrderByDescending(a => a.Id).Skip(skip).Take(8).ToList()
+        //    });
+
+        //}
+
+
         [HttpPost]
         public ActionResult Search(string username)
         {
@@ -42,6 +64,24 @@ namespace Reveries.Controllers
             });
         }
 
+
+        [HttpPost]
+        public ActionResult Index(HomeIndex home)
+        {
+            string reverie = home.textArea;
+            if (String.IsNullOrWhiteSpace(reverie))
+                return RedirectToRoute("Home");
+            else
+            {
+                Reverie reverieObj = new Reverie();
+                reverieObj.Content = reverie;
+                reverieObj.CreateDate = DateTime.Now;
+                reverieObj.User = context.Users.ToList().FirstOrDefault(a =>a.Username == User.Identity.Name);
+                context.Reveries.Add(reverieObj);
+                context.SaveChanges();
+                return RedirectToRoute("Home");
+            }
+        }
 
     }
 }

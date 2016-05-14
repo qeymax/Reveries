@@ -1,39 +1,89 @@
 ﻿@model Reveries.ViewModels.UserLogin
 @{
     Layout = null;
-    ViewBag.Title = "Login";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <!-- Start: Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- End: Meta Tags -->
     <title>Login</title>
+    <!-- Start: Favicon Icon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- End: Favicon Icon -->
+    <!-- Start: CSS Files Include -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/material-icons.css">
+    @Styles.Render("~/css/font-awesome.min.css")
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <!-- End: CSS Files Include -->
 </head>
 <body>
-    <div>
-        @using (Html.BeginForm())
-        {
-            <div>
-                @Html.LabelFor(a => a.username)
-                @Html.EditorFor(a => a.username)
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <!-- ====================================================================== -->
+    <!-- Start: Header -->
+    <!-- ====================================================================== -->
+    <header id="top">
+        <div class="row myMain login">
+            <div class="col s12 center-align">
+                <a class="">
+                    <div class="logo">
+                        <img style="max-height:120px" src="~/img/logoNoText.png" alt="logo" class="responsive-img logoPinTop" />
+                    </div>
+                    <h2 style="color:darkred" class="flow-text">Reveries</h2>
+                </a>
+                
+                <form method="post">
+                    <div class="row">
+                        <div class="col s10 offset-s1 m4 offset-m4 center-block">
+                            <div class="input-field red darken-2 white-text">
+                                <i class="material-icons prefix">face</i>
+                                <input placeholder="Username" id="username" type="text" class="validate" name="username">
+                                <label for="username"></label>
+                            </div>
+                            <div class="input-field red darken-2 white-text">
+                                <i class="material-icons prefix">lock_outline</i>
+                                <input placeholder="Password" id="password" type="password" class="validate" name="password">
+                                <label for="password"></label>
+                            </div>
+                            <p class="remeberCheckBox">
+                                <input type="checkbox" id="remember" name="remember" />
+                                <label for="remember">Remeber Me</label>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 offset-m3">
+                            <a onclick="$(this).closest('form').submit(); return false;" href="#!" class="btn waves-effect waves-light btn-large red darken-2 page-scroll myButton">Login</a>
+                        </div>
+                    </div>
+                    @Html.ValidationSummary()
+                </form>
+                <div class="row">
+                    <div class="col s12 m6 offset-m3">
+                        <p class="remeberCheckBox">Not a Member? <a href="@Url.RouteUrl("Register")">SignUp</a></p>
+                    </div>
+                </div>
             </div>
-
-            <div>
-                @Html.LabelFor(a => a.password)
-                @Html.EditorFor(a => a.password)
-            </div>
-
-            <div>
-
-                <input type="submit" value="Login" />
-            </div>
-
-            @Html.ValidationSummary()
-        }
-    </div>
-</body>
+        </div>
+    </header>
+    @Scripts.Render("~/bundles/Scripts")
+    </body>
 </html>
 
 
